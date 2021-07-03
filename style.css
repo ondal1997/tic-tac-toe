@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    width: 360px;
+    height: 360px;
+}
+
+.board div {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-color: #717171;
+}
+
+.board div:nth-child(2n) {
+    background-color: #eaeaea;
+}
+
+.board div.red::before {
+    content: '';
+    position: absolute;
+    background-color: red;
+    border-radius: 100%;
+
+    animation-duration: 1s;
+    animation-name: slidein;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+}
+
+.board div.blue::before {
+    content: '';
+    position: absolute;
+    background-color: blue;
+    border-radius: 100%;
+
+    animation-duration: 1s;
+    animation-name: slidein;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+}
+
+@keyframes slidein {
+    from {
+        border-radius: 0;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+    }
+}
+
+.score::before {
+    content: '●';
+    color: red;
+}
+
+.score::after {
+    content: '●';
+    color: blue;
+}
